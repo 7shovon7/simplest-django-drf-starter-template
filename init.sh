@@ -25,6 +25,9 @@ find . -path "*/migrations/*.pyc"  -delete
 # Create virtual environment
 python3 -m venv .venv
 
+# Update path
+PATH=$(pwd)/.venv/bin
+
 # Activate
 source $(pwd)/.venv/bin/activate
 
