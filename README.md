@@ -96,6 +96,21 @@ find . -path "*/migrations/*.py" -not -name "__init__.py" -delete
 find . -path "*/migrations/*.pyc"  -delete
 ```
 
+- Create .env and generate a secret
+
+```bash
+cp .env.example .env
+echo ".env file created successfully. Feel free to make changes."
+
+# Generate a 60-character long secret
+SECRET_KEY=$(python3 -c 'import secrets; print(secrets.token_urlsafe(60))')
+
+# Update the SECRET_KEY in the .env file
+sed -i '' "s/^SECRET_KEY=.*/SECRET_KEY=${SECRET_KEY}/" .env
+
+echo "SECRET_KEY updated successfully"
+```
+
 - Create fresh migration files and migrate with `sqlite3` db
 
 ```bash
@@ -107,6 +122,16 @@ python3 manage.py migrate
 
 ```bash
 python3 manage.py runserver
+```
+
+- Start customizing the project by deleting the existing .git and init.sh script
+
+```bash
+echo "\nDeleting .git directory..."
+rm -rf .git
+# Self-destruction
+echo "\nScript ran successfully. Deleting the script from this directory. If you need, pls try pulling the repo again."
+rm -- "$0"
 ```
 
 ## DB
