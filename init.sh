@@ -3,20 +3,32 @@
 # Default values
 PYTHON="python3"
 PIP="pip3"
+DELETE_ORIGINAL=true
+
+# Function to display usage
+usage() {
+    echo "Usage: $0 [-p python_executable] [-i pip_executable] [--keep-original] <your preferred name>"
+    exit 1
+}
 
 # Parse optional arguments
-while getopts ":p:i:" opt; do
-    case $opt in
-        p) PYTHON="$OPTARG"
-        ;;
-        i) PIP="$OPTARG"
-        ;;
-        \?) echo "Invalid option -$OPTARG" >&2
-            exit 1
-        ;;
+while [[ "$#" -gt 0 ]]; do
+    case $1 in
+        -p) PYTHON="$2"; shift ;;
+        -i) PIP="$2"; shift ;;
+        --keep-original) DELETE_ORIGINAL=false ;;
+        -h|--help) usage ;;
+        --) shift; break ;;
+        -*|--*=) echo "Unknown option $1" >&2; usage ;;
+        *) break ;;
     esac
+    shift
 done
-shift $((OPTIND -1))
+
+# Check if the user provided the required argument
+if [ "$#" -ne 1 ]; then
+    usage
+fi
 
 # Check if the user provided the required argument
 if [ "$#" -ne 1 ]; then
@@ -72,6 +84,11 @@ else
     exit 1
 fi
 
-# Self-destruction
-echo "Script ran successfully. Deleting the script from this directory. If you need, pls try pulling the repo again."
-rm -- "$0"
+# Delete .git and the script itself
+if $DELETE_ORIGINAL; then
+    echo "\nDeleting .git directory..."
+    rm -rf .git
+    # Self-destruction
+    echo "\nScript ran successfully. Deleting the script from this directory. If you need, pls try pulling the repo again."
+    rm -- "$0"
+fi
