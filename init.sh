@@ -36,3 +36,12 @@ else
     echo "Failed to activate virtual environment"
     exit 1
 fi
+
+# Copy .env.example to .env
+if [ -f ".env.example" ]; then
+    cp .env.example .env
+    echo ".env file created successfully. Feel free to make changes."
+else
+    echo ".env.example file not found"
+    exit 1
+fi

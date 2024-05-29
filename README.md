@@ -12,10 +12,9 @@ This is a django rest api with jwt based authentication. What are included:
 
 Disclaimer: This is developed and tested in MacOS, should work out-of-the-box with Linux as well, and might need adjustments for windows in the shell script.
 
-## Already familiar with the commands? Just run the following. Otherwise jumpt to [`How to start`](#how-to-start-if-you-are-for-the-first-time-with-this-repo) section
+## Better to jump to [`How to start`](#how-to-start-if-you-are-for-the-first-time-with-this-repo) section, if you're here for the first time
 
 Taking into consideration that you're already in a blank project directory of your preferred name.
-!!Important!! Change the main app name `<your preferred name>` here before running.
 
 - Clone the repo
 
@@ -51,7 +50,7 @@ python3 manage.py migrate
 python3 manage.py runserver
 ```
 
-You're done!!
+You're done!! Now jumpt to [DB](#db) section.
 
 ## How to start (If you are for the first time with this repo)
 
@@ -109,3 +108,7 @@ python3 manage.py migrate
 ```bash
 python3 manage.py runserver
 ```
+
+## DB
+
+Inside the created .env file you'll get `DB_KEY=sqlite3`. To use postgres change this key to `DB_KEY=postgres` and update the postgres database details accordingly.
