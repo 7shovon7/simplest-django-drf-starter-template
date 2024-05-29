@@ -12,7 +12,7 @@ This is a django rest api with jwt based authentication. What are included:
 
 Disclaimer: This is developed and tested in MacOS, should work out-of-the-box with Linux as well, and might need adjustments for windows in the shell script.
 
-## Already familiar with the commands? Just run the following. Otherwise jumpt to `How to start` section
+## Already familiar with the commands? Just run the following. Otherwise jumpt to [`How to start`](#how-to-start-if-you-are-for-the-first-time-with-this-repo) section
 
 Taking into consideration that you're already in a blank project directory of your preferred name.
 !!Important!! Change the main app name `<your preferred name>` here before running.
@@ -23,10 +23,10 @@ Taking into consideration that you're already in a blank project directory of yo
 git clone https://github.com/7shovon7/simplest-django-drf-starter-template .
 ```
 
-- Run the init.sh script
+- Run the init.sh script with your preferred `<your preferred app name>`
 
 ```bash
-./init.sh
+./init.sh <your preferred app name>
 ```
 
 If you face permission error, allow the script execution permission
@@ -35,7 +35,13 @@ If you face permission error, allow the script execution permission
 chmod +x init.sh
 ```
 
-- Migrate and test run
+- Activate the virtual environment
+
+```bash
+source .venv/bin/activate
+```
+
+- Migrate and test run with `sqlite3` db
 
 ```bash
 python3 manage.py makemigrations
@@ -91,7 +97,7 @@ find . -path "*/migrations/*.py" -not -name "__init__.py" -delete
 find . -path "*/migrations/*.pyc"  -delete
 ```
 
-- Create fresh migration files and migrate
+- Create fresh migration files and migrate with `sqlite3` db
 
 ```bash
 python3 manage.py makemigrations
