@@ -10,26 +10,32 @@ This is a django rest api with jwt based authentication. What are included:
 - Basic `Product` model
 - Basic `Order` model with `signals` to auto update cart items based on changes
 
-## Already familiar with the commands? Just run the following (Taking into consideration that you're already in a blank project directory of your preferred name). Otherwise jumpt to `How to start` section
+Disclaimer: This is developed and tested in MacOS, should work out-of-the-box with Linux as well, and might need adjustments for windows in the shell script.
+
+## Already familiar with the commands? Just run the following. Otherwise jumpt to `How to start` section
+
+Taking into consideration that you're already in a blank project directory of your preferred name.
+!!Important!! Change the main app name `<your preferred name>` here before running.
+
+- Clone the repo
 
 ```bash
-# Clone
 git clone https://github.com/7shovon7/simplest-django-drf-starter-template .
-# Rename the main app
-find . -type d -name 'house_of_spice' | while read dir; do mv "$dir" "$(dirname "$dir")/<your preferred name>"; done
-# Replace the strings in different files
-find . -type f -exec sed -i '' 's/house_of_spice/<your preferred name>/g' {} +
-# Create and activate virtual environment
-python3 -m venv .venv
-source .venv/bin/activate
-# Install the requirements
-pip3 install -r requirements.txt
-# Delete existing migrations files for a fresh start
-find . -path "*/migrations/*.py" -not -name "__init__.py" -delete
-find . -path "*/migrations/*.pyc"  -delete
 ```
 
-Migrate and test run
+- Run the init.sh script
+
+```bash
+./init.sh
+```
+
+If you face permission error, allow the script execution permission
+
+```bash
+chmod +x init.sh
+```
+
+- Migrate and test run
 
 ```bash
 python3 manage.py makemigrations
@@ -39,7 +45,7 @@ python3 manage.py migrate
 python3 manage.py runserver
 ```
 
-you're done!!
+You're done!!
 
 ## How to start (If you are for the first time with this repo)
 
