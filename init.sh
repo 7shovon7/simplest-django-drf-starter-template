@@ -22,9 +22,19 @@ find . -type f -exec sed -i '' "s/house_of_spice/$NEW_NAME/g" {} +
 find . -path "*/migrations/*.py" -not -name "__init__.py" -delete
 find . -path "*/migrations/*.pyc"  -delete
 
-# Create and activate virtual environment
+# Create virtual environment
 python3 -m venv .venv
+
+# Activate
 source .venv/bin/activate
 
 # Install the requirements
-pip3 install -r requirements.txt
+if if [ $? -eq 0 ]; then
+    echo "Virtual environment activated successfully"
+    # Add a short delay to ensure activation completes
+    sleep 5
+    pip3 install -r requirements.txt
+else
+    echo "Failed to activate virtual environment"
+    exit 1
+fi
