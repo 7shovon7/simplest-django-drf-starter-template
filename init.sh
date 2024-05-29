@@ -71,3 +71,7 @@ else
     echo ".env.example file not found"
     exit 1
 fi
+
+# Self-destruction
+echo "Script ran successfully. Deleting the script from this directory. If you need, pls try pulling the repo again."
+rm -- "$0"
