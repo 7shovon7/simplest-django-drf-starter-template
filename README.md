@@ -25,7 +25,14 @@ cd project-name
 git clone <repo-url> .
 ```
 
-- Search and replace the project app `house_of_spice` with your preferred name
+- Search and replace the project app `house_of_spice` with your preferred name `<your preferred name>`
+
+```bash
+# Rename the main app
+find . -type d -name 'house_of_spice' | while read dir; do mv "$dir" "$(dirname "$dir")/<your preferred name>"; done
+# Replace the strings in different files
+find . -type f -exec sed -i '' 's/house_of_spice/<your preferred name>/g' {} +
+```
 
 - Create and activate virtual environment
 
