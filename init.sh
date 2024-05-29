@@ -9,6 +9,9 @@ fi
 # Assign the provided argument to a variable
 NEW_NAME=$1
 
+# Set locale to handle illegal byte sequence
+export LC_ALL=C
+
 # Rename the main app
 find . -type d -name 'house_of_spice' | while read dir; do mv "$dir" "$(dirname "$dir")/$NEW_NAME"; done
 
