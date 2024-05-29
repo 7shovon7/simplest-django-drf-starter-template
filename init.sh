@@ -26,13 +26,11 @@ find . -path "*/migrations/*.pyc"  -delete
 python3 -m venv .venv
 
 # Activate
-source .venv/bin/activate
+source $(pwd)/.venv/bin/activate
 
 # Install the requirements
 if [ $? -eq 0 ]; then
     echo "Virtual environment activated successfully"
-    # Add a short delay to ensure activation completes
-    sleep 5
     pip3 install -r requirements.txt
 else
     echo "Failed to activate virtual environment"
