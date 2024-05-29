@@ -1,6 +1,14 @@
 # Django Starter with Ecommerce Basic
 
-This is a django rest api with email and jwt based authentication. Have configured basic smtp server settings and product, order apps as well.
+This is a django rest api with jwt based authentication. What are included:
+
+- Custom `User` model with email and password based auth (no username)
+- `Django Rest Framework` and `Simple JWT` for JWT based auth
+- Automatic user `signup`, `login`, `reset password` with `Djoser`
+- `SMTP` based email setup in `settings`
+- Distinct `Profile` models based on user role, e.g. `MANAGER`, `CUSTOMER` etc.
+- Basic `Product` model
+- Basic `Order` model with `signals` to auto update cart items based on changes
 
 ## How to start
 
