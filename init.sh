@@ -29,7 +29,7 @@ python3 -m venv .venv
 source .venv/bin/activate
 
 # Install the requirements
-if if [ $? -eq 0 ]; then
+if [ $? -eq 0 ]; then
     echo "Virtual environment activated successfully"
     # Add a short delay to ensure activation completes
     sleep 5
