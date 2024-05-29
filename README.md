@@ -127,10 +127,10 @@ python3 manage.py runserver
 - Start customizing the project by deleting the existing .git and init.sh script
 
 ```bash
-echo "\nDeleting .git directory..."
+echo "Deleting .git directory..."
 rm -rf .git
 # Self-destruction
-echo "\nScript ran successfully. Deleting the script from this directory. If you need, pls try pulling the repo again."
+echo "Script ran successfully. Deleting the script from this directory. If you need, pls try pulling the repo again."
 rm -- "$0"
 ```
 
